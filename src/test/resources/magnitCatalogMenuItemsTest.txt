@@ -1,0 +1,29 @@
+0) TEST_DATA:
+    [
+        ["Фрукты"],
+        ["Овощи"],
+        ["Ягоды"],
+        ["Зелень"],
+        ["Грибы"],
+        ["Орехи и сухофрукты"]
+    ]
+
+1) title: " 'Овощи и фрукты' catalog menu contains TEST_DATA[0] button"
+2) priority: medium
+3) pre-condition:
+        -chrome browser is open
+        -location: https://dostavka.magnit.ru/
+
+4) steps:
+        -press "Овощи и фрукты" button in header bottom menu
+
+5) expected result:
+   'Овощи и фрукты' catalog contains TEST_DATA[0] category button
+
+
+
+
+
+
+
+
