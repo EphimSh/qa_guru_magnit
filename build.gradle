@@ -1,0 +1,33 @@
+plugins{
+    id 'java-library'
+}
+group 'guru.qa'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            'org.junit.jupiter:junit-jupiter:5.9.2'
+    )
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter-api:5.9.2',
+            'com.codeborne:selenide:6.14.1',
+            'org.slf4j:slf4j-simple:2.0.7'
+    )
+
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+test {
+    String tags = System.getProperty("tags") != null ? System.getProperty("tags") : "smoke,web"
+    useJUnitPlatform{
+        includeTags tags.split(",")
+    }
+}
